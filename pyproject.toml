@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "boi-tech-ai-security-sdk"
-version = "1.0.0"
+version = "1.0.1"
 description = "AI Agent, RAG & LLM Guardrail Suite"
 readme = "README.md"
 requires-python = ">=3.9"
