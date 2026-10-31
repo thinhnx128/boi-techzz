@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boi-tech-ai-security-sdk"
+version = "1.0.0"
+description = "AI Agent, RAG & LLM Guardrail Suite"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Xuan Thinh Nguyen", email = "300279120+thinhnx128@users.noreply.github.com" }
+]
+license = { text = "MIT" }
