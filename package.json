@@ -1,0 +1,12 @@
+{
+  "name": "@thinhnx128/boi-tech-ai-security-sdk",
+  "version": "1.0.0",
+  "description": "AI Agent, RAG & LLM Guardrail SDK (Baseline release prior to v1.0.1 CWE security patches)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinhnx128/boi-techzz.git"
+  },
+  "author": "Xuan Thinh Nguyen (@thinhnx128) <300279120+thinhnx128@users.noreply.github.com>",
+  "license": "MIT"
+}
