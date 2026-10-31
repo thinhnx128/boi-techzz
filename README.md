@@ -1,34 +1,20 @@
-# ⚡ AI, Cloud & Security Bounty Solutions — `@thinhnx128`
+# `@thinhnx128/boi-tech-ai-security-sdk` (`boi-techzz`)
 
-Production-ready open-source modules, security patches, and concurrency primitives engineered by **Xuan Thinh Nguyen ([@thinhnx128](https://github.com/thinhnx128))**.
+Defensive AI/LLM Guardrail & Security Remediation Suite maintained by **Xuan Thinh Nguyen ([`@thinhnx128`](https://github.com/thinhnx128))**.
 
----
+- **Latest Patched Release**: [`v1.0.1`](https://github.com/thinhnx128/boi-techzz/releases/tag/v1.0.1) ([CalVer `v2026.10.30`](https://github.com/thinhnx128/boi-techzz/releases/tag/v2026.10.30))
+- **Initial Affected Baseline**: [`v1.0.0`](https://github.com/thinhnx128/boi-techzz/releases/tag/v1.0.0) (`< 1.0.1`)
+- **Security Advisories**: [10 Published GHSA Advisories](https://github.com/thinhnx128/boi-techzz/security/advisories) (see [`SECURITY.md`](./SECURITY.md) and [`CHANGELOG.md`](./CHANGELOG.md))
 
-## 🔥 Live GitHub Bounty Issue Solutions (Ready for PR & `/claim`)
+## Remediated Modules (`security-patches/`)
 
-| ID | Target GitHub Issue | Package Folder | Tech Stack | Claim Command |
-|---|---|---|---|---|
-| **#BOI960006** | [`arakoodev/EdgeChains#273`](https://github.com/arakoodev/EdgeChains/issues/273) — Add Qdrant Vector Database Support in JS SDK | [`packages/edgechains-qdrant-sdk-273`](./packages/edgechains-qdrant-sdk-273) | TypeScript, Native REST Fetch, Vitest | `/attempt #273` · `/claim #273` |
-| **#BOI950007** | [`antfu/raycast-multi-translate#7`](https://github.com/antfu/raycast-multi-translate/issues/7) — Add Support for DeepL API (Free & Pro Tier) | [`packages/raycast-deepl-api-7`](./packages/raycast-deepl-api-7) | TypeScript, DeepL REST API v2, Vitest | `/attempt #7` · `/claim #7` |
-| **#BOI930008** | [`javelin-anticheat/py-workedtask#4`](https://github.com/javelin-anticheat/py-workedtask/issues/4) — SHA-256 Script & Executable Integrity Verification (`$100`) | [`packages/javelin-integrity-sha256-4`](./packages/javelin-integrity-sha256-4) | Python 3, `hashlib`, `hmac`, Pytest | `/attempt #4` · `/claim #4` |
-
----
-
-## 📦 Core AI, Cloud & Security Bounty Packages (Ranked by Win-Rate)
-
-| ID | Win-Rate | Package / Target | Tech Stack | Test Coverage |
-|---|---|---|---|---|
-| **#BOI970001** | **97%** | [`packages/ai-cloud-mcp-connector`](./packages/ai-cloud-mcp-connector) — Resilient AI Cloud & MCP Connector Piece with Zod validation & exponential backoff | TypeScript, Zod, Fetch API | 100% (Vitest) |
-| **#BOI940002** | **94%** | [`packages/rag-security-ssrf-patch`](./packages/rag-security-ssrf-patch) — CWE-918 (SSRF) & CWE-22 (ZipSlip Path Traversal) remediation for AI/RAG Document & Model Loaders | Python 3, Socket DNS Validator, Tarfile Guard | 100% (Pytest) |
-| **#BOI910003** | **91%** | [`packages/cloud-webhook-idempotency`](./packages/cloud-webhook-idempotency) — Atomic In-Flight Deduplication & Concurrency Lock for Cloud Webhook Queues | TypeScript, Async Promises | 50-Way Concurrency Stress Test |
-| **#BOI880004** | **88%** | [`packages/llm-sse-stream-accumulator`](./packages/llm-sse-stream-accumulator) — Chunk-boundary safe SSE Streaming Parser & Multi-Byte UTF-8 Token Accumulator | TypeScript, `TextDecoder` Stream | 100% (Vitest) |
-| **#BOI850005** | **85%** | [`packages/pickle-rce-sandbox-guard`](./packages/pickle-rce-sandbox-guard) — CWE-502 Pickle Deserialization RCE Sandbox (`SafeCheckpointUnpickler`) | Python 3, `pickle.Unpickler` Allowlist | 100% (Pytest) |
-
----
-
-## 🛡️ Automated AI/ML Vulnerability Scanner
-Includes `ai-bounty-auditor.mjs` for static detection of:
-- **CWE-502**: Unsafe Deserialization (`pickle.loads`, `torch.load` without `weights_only=True`, `yaml.unsafe_load`)
-- **CWE-78**: OS Command Injection in AI Agent tool execution (`subprocess` with `shell=True`, `eval`)
-- **CWE-918**: Server-Side Request Forgery (SSRF) against Cloud Metadata (`169.254.169.254`)
-- **CWE-22**: Arbitrary File Overwrite / ZipSlip during model archive extraction
+1. `security-patches/cwe-502-safe-loader/safe_checkpoint_loader.py` — Restricted `pickle.Unpickler` & HMAC-SHA256 verification (`GHSA-p49q-3f4w-j672`, `CWE-502`)
+2. `security-patches/cwe-78-safe-executor/safe_tool_executor.py` — Binary allowlisting & `shell=False` enforcement (`GHSA-3x2g-xg34-42pq`, `CWE-78`)
+3. `security-patches/cwe-918-ssrf-guard/safe_rag_url_fetcher.py` — DNS/IP validation blocking `169.254.169.254` & RFC1918 ranges (`GHSA-p4rc-37fp-fvv2`, `CWE-918`)
+4. `security-patches/cwe-22-zipslip-guard/safe_archive_extractor.py` — Canonical path containment check during archive extraction (`GHSA-x9x3-4qrj-g4hx`, `CWE-22`)
+5. `security-patches/cwe-94-ssti-guard/sandboxed_prompt_renderer.py` — Sandboxed prompt template rendering (`GHSA-pg2c-5pwj-58r2`, `CWE-94`)
+6. `security-patches/cwe-89-sql-guard/safe_text2sql_executor.py` — Single-statement `SELECT` enforcement for Text-to-SQL agents (`GHSA-hff2-r3gp-j4jv`, `CWE-89`)
+7. `security-patches/cwe-611-xxe-guard/safe_rag_xml_loader.py` — XML DTD & external entity blocker for RAG ingestion (`GHSA-wrc3-8c98-283w`, `CWE-611`)
+8. `security-patches/cwe-79-xss-guard/safe_markdown_renderer.ts` — Stored XSS sanitizer for LLM Markdown/HTML output (`GHSA-vr42-692h-pmm6`, `CWE-79`)
+9. `security-patches/cwe-532-log-redactor/secret_log_redactor.py` — Telemetry Bearer/API key redactor (`GHSA-q749-wr8p-6pc9`, `CWE-532`)
+10. `security-patches/cwe-1333-redos-guard/safe_llm_output_parser.py` — Linear-time `O(N)` LLM JSON code-block parser (`GHSA-q77q-crp2-mmjc`, `CWE-1333`)
