@@ -1,7 +1,7 @@
 {
   "name": "@thinhnx128/boi-tech-ai-security-sdk",
-  "version": "1.0.0",
-  "description": "AI Agent, RAG & LLM Guardrail SDK (Baseline release prior to v1.0.1 CWE security patches)",
+  "version": "1.0.1",
+  "description": "AI Agent, RAG & LLM Guardrail SDK (Patched release containing all 10 v1.0.1 CWE security patches)",
   "main": "index.js",
   "repository": {
     "type": "git",
